@@ -1,13 +1,16 @@
+//Сначала мы оговариваем, что K обязательно должно быть подмножеством множества ключей типа Т. 
+//После мы собираем на основе Т и K такой тип, что для каждого ключа Key из K мы добавим в наш новый тип поле типа T[Key] - того типа, которого и было поле под этим ключом. 
 export type MyPick<T, K extends keyof T> = {
     [Key in K] : T[Key]
 }
 
-export type NOfArray<ArrayObj extends Array<any>, N extends number> = {
-    test : ArrayObj[N]
-}
+//Оговариваем, что ArrayObj обязательно должно являться массивом, обобщенным чем угодно. N обязательно должно являться числом.
+//После этого просто берем элемент массива с индексом N, и это будет искомый тип
+export type NOfArray<ArrayObj extends Array<any>, N extends number> = ArrayObj[N]
 
-export type Unshift<ArrayType extends Array<any>, Element> = {
-    test: [Element, ...ArrayType];
-}
+//Оговариваем, что ArrayType обязательно должно являться массивом, обобщенным чем угодно.
+//После чего говорим, что объект будет являться массивом, первый элемент которого - Element, а остальные - разъединенные элементы массива ArrayType
+export type Unshift<ArrayType extends Array<any>, Element> = [Element, ...ArrayType]
 
+//Собираем тип следующим образом: для каждого элемента типа Т проверим, является ли он частью U. Если нет - вернем этот элемент. Иначе - вернем never. Собранный таким образом тип является искомым 
 export type MyExclude<T, U> = T extends U? never : T;
