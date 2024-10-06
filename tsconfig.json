@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es6",                          // Укажите целевую версию JS
+    "module": "commonjs",                     // Стандарт модулей
+    "strict": true,                           // Включите строгую проверку типов
+    "noImplicitAny": false,                   // Не обязывайте объявлять типы
+    "strictNullChecks": true,                 // Проверка на null
+    "strictFunctionTypes": true,              // Не позволяйте несовпадению типов функций
+    "strictBindCallApply": true,              // Более строгая проверка для bind/call/apply
+    "noImplicitThis": true,                   // Ошибки на неявный any в this
+    "alwaysStrict": true,                      // Всегда используйте строгий режим
+    "esModuleInterop": true,                   // Позволяет работать с CommonJS и ES модулями
+    "skipLibCheck": true,                       // Пропустите проверку типов библиотек
+    "outDir": "./dist",
+  },
+  "include": [
+    "src/**/*"                                  // Укажите папку с исходным кодом
+  ],
+  "exclude": [
+    "node_modules",                             // Исключите папки с зависимостями
+    "**/*.spec.ts"                             // Исключите файлы тестов (если есть)
+  ]
+}
